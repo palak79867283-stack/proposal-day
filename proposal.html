@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy ❤️ Palak</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background: radial-gradient(circle, #ff5f9e, #7b2ff7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Poppins', sans-serif;
+    overflow:hidden;
+    color:white;
+}
+
+.box{
+    text-align:center;
+    background: rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 0 40px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+}
+
+h1{
+    font-size:2.4rem;
+}
+
+#type{
+    font-size:1.2rem;
+    min-height:50px;
+    margin-top:15px;
+}
+
+button{
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    font-size:1.1rem;
+    cursor:pointer;
+    margin:15px;
+}
+
+#yes{
+    background:#ff2e63;
+    color:white;
+}
+
+#no{
+    background:#fff;
+    color:#ff2e63;
+    position:absolute;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.heart{
+    position:absolute;
+    font-size:22px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<div class="box">
+    <h1>Hey Happy ❤️</h1>
+    <div id="type"></div>
+
+    <button id="yes" onclick="yesClicked()">YES 💍</button>
+    <button id="no" onmouseover="moveNo()">NO 😜</button>
+</div>
+
+<script>
+const text=[
+"Dear Happy 💕",
+"From late-night talks to silly laughs…",
+"You became my favorite part of life 🌍",
+"Palak loves you endlessly ❤️",
+"So today I ask you one thing…",
+"Happy, will you be mine forever? 💍"
+];
+
+let i=0,j=0;
+const t=document.getElementById("type");
+
+function typing(){
+    if(i<text.length){
+        if(j<text[i].length){
+            t.innerHTML+=text[i].charAt(j);
+            j++;
+            setTimeout(typing,60);
+        }else{
+            t.innerHTML+="<br>";
+            i++; j=0;
+            setTimeout(typing,700);
+        }
+    }
+}
+typing();
+
+function yesClicked(){
+    document.body.innerHTML="<h1 style='font-size:3rem;text-align:center;'>💖 HAPPY SAID YES 💖<br>Happy ❤️ Palak Forever 🥰</h1>";
+}
+
+function moveNo(){
+    const x=Math.random()*(window.innerWidth-100);
+    const y=Math.random()*(window.innerHeight-50);
+    no.style.left=x+"px";
+    no.style.top=y+"px";
+}
+
+function heart(){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,300);
+</script>
+
+</body>
+</html>
