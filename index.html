@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Mani ❤️</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #3b0000, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5e6d3;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 360px;
+    height: 520px;
+    perspective: 1200px;
+  }
+
+  .inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s ease;
+  }
+
+  .card.open .inner {
+    transform: rotateY(180deg);
+  }
+
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  .front {
+    background: linear-gradient(145deg, #5c0000, #1a0000);
+    border: 2px solid #b08d57;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .front h1 {
+    font-size: 26px;
+    color: #e6c27a;
+    letter-spacing: 1px;
+  }
+
+  .front p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-top: 10px;
+  }
+
+  .back {
+    background: linear-gradient(160deg, #0b0b0b, #2a0000);
+    transform: rotateY(180deg);
+    padding: 26px 22px;
+    border: 2px solid #b08d57;
+  }
+
+  .back h2 {
+    color: #e6c27a;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .message {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: justify;
+    color: #f3e7d6;
+  }
+
+  .signature {
+    margin-top: 22px;
+    text-align: right;
+    font-style: italic;
+    color: #d8b36a;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 1.5px solid #e6c27a;
+    color: #e6c27a;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .btn:active {
+    background: rgba(230, 194, 122, 0.15);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card" onclick="toggleCard()">
+  <div class="inner">
+
+    <!-- Front -->
+    <div class="front">
+      <div>
+        <h1>For Mani</h1>
+        <p>A small surprise made just for you</p>
+        <p style="margin-top:20px;font-size:12px;">Tap to open</p>
+      </div>
+    </div>
+
+    <!-- Back -->
+    <div class="back">
+      <h2>Dear Mani,</h2>
+
+      <div class="message">
+        I’ve been holding these words quietly, waiting for the right moment —
+        and Valentine’s felt like that moment.
+
+        <br><br>
+
+        You have a way of standing out without trying, and somewhere along the way,
+        my thoughts started choosing you more often than I expected.
+        It’s not loud or dramatic — just a calm, honest feeling that feels right.
+
+        <br><br>
+
+        I don’t know where life leads, but I do know this:
+        I wanted you to know that you are special to me,
+        and this comes straight from the heart.
+      </div>
+
+      <div class="signature">
+        — Someone who truly admires you ❤️
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleCard() {
+    document.querySelector('.card').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
